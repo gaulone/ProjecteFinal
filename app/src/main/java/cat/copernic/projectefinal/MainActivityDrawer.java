@@ -6,16 +6,24 @@ import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.TextView;
 
 
 public class MainActivityDrawer extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+
+    public Usuario getUser() {
+        return user;
+    }
+
+    public Usuario user;
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -40,6 +48,9 @@ public class MainActivityDrawer extends ActionBarActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        user = (Usuario)getIntent().getSerializableExtra("usuario");
+
     }
 
     @Override
@@ -118,6 +129,8 @@ public class MainActivityDrawer extends ActionBarActivity
          * The fragment argument representing the section number for this
          * fragment.
          */
+        TextView prueba;
+
         private static final String ARG_SECTION_NUMBER = "section_number";
 
         /**
@@ -139,8 +152,16 @@ public class MainActivityDrawer extends ActionBarActivity
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main_activity2, container, false);
+
+
+            prueba = (TextView) getView().findViewById(R.id.pruebauser);
+            prueba.setText(user.getNombre());
+
+
             return rootView;
         }
+
+
 
         @Override
         public void onAttach(Activity activity) {

@@ -86,11 +86,12 @@ public class MainActivity extends ActionBarActivity {
     public void OnClickAcceder (View view) {
 
 
-         user=new Usuario(usuario.getText().toString(),contraseña.getText().toString());
+         user=new Usuario(usuario.getText().toString(),contraseña.getText().toString(),10,2,5);
 
         errores.setText("ok: "+user);
 
         Intent i = new Intent(this, MainActivityDrawer.class );
+        i.putExtra("usuario", user);
         startActivity(i);
 
     }

@@ -1,6 +1,7 @@
 package cat.copernic.projectefinal;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -15,15 +16,17 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.TextView;
 
+import cat.copernic.projectefinal.FragmentUsuario.OnFragmentInteractionListener;
+
 
 public class MainActivityDrawer extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, OnFragmentInteractionListener {
 
-    public Usuario getUser() {
+    public static Usuario getUser() {
         return user;
     }
 
-    public Usuario user;
+    public static Usuario user;
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -57,12 +60,37 @@ public class MainActivityDrawer extends ActionBarActivity
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
 
+        //cargamos fragmentos segun posicion
+        switch (position){
+            case 0:FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .commit();
+                break;
+            case 1:FragmentManager fragmentManager1 = getSupportFragmentManager();
+                fragmentManager1.beginTransaction()
+                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .commit();
+                break;
+            case 2:FragmentManager fragmentManager2 = getSupportFragmentManager();
+                fragmentManager2.beginTransaction()
+                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .commit();
+                break;
+            case 3: FragmentManager fragmentManager3 = getSupportFragmentManager();
+                fragmentManager3.beginTransaction()
+                        .replace(R.id.container, FragmentUsuario.newInstance(null,null))
+                        .commit();
+                break;
+        }
 
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
+
+
+        /*FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+                .commit();*/
 
 
 
@@ -121,6 +149,11 @@ public class MainActivityDrawer extends ActionBarActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -154,8 +187,8 @@ public class MainActivityDrawer extends ActionBarActivity
             View rootView = inflater.inflate(R.layout.fragment_main_activity2, container, false);
 
 
-            prueba = (TextView) getView().findViewById(R.id.pruebauser);
-            prueba.setText(user.getNombre());
+          //  prueba = (TextView) getView().findViewById(R.id.pruebauser);
+           // prueba.setText(user.getNombre());
 
 
             return rootView;

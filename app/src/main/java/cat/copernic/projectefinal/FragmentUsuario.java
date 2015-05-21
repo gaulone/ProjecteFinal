@@ -20,8 +20,15 @@ import android.widget.TextView;
  */
 public class FragmentUsuario extends Fragment {
 
+    private static final String ARG_SECTION_NUMBER = "section_number";
+
     Usuario user;
-    TextView prueba;
+    TextView nombre;
+    TextView numLuces;
+    TextView numTemperaturas;
+    TextView numPersianas;
+    TextView calefaccion;
+    TextView aireAcondicionado;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,16 +45,14 @@ public class FragmentUsuario extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     *
      * @return A new instance of fragment FragmentUsuario.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentUsuario newInstance(String param1, String param2) {
+    public static FragmentUsuario newInstance(int sectionNumber) {
         FragmentUsuario fragment = new FragmentUsuario();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
         return fragment;
     }
@@ -74,12 +79,18 @@ public class FragmentUsuario extends Fragment {
 
         View l = inflater.inflate(R.layout.fragment_usuario, container, false);
 
-        prueba = (TextView) l.findViewById(R.id.pruebaUser);
-       user = MainActivityDrawer.getUser();
-        prueba.setText(user.toString());
+        //asignamos variables con layout
+        nombre = (TextView) l.findViewById(R.id.nombreUsuario);
+        numLuces = (TextView) l.findViewById(R.id.numLuces);
+        numTemperaturas  =(TextView) l.findViewById(R.id.numTemperaturas);
+        numPersianas = (TextView) l.findViewById(R.id.numPersianas);
+        calefaccion = (TextView) l.findViewById(R.id.calefaccion);
+        aireAcondicionado = (TextView) l.findViewById(R.id.aireAcondicionado);
 
+        //cargamos información
+        cargarUsuario();
 
-        return l;
+        return l;//retornamos la vista
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -98,6 +109,8 @@ public class FragmentUsuario extends Fragment {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+        ((MainActivityDrawer) activity).onSectionAttached(
+                getArguments().getInt(ARG_SECTION_NUMBER));
     }
 
     @Override
@@ -119,6 +132,19 @@ public class FragmentUsuario extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
+    }
+
+
+    void cargarUsuario(){
+
+        user=MainActivityDrawer.getUser();
+        nombre.setText(user.getNombre());
+        numLuces.setText(String.valueOf(user.getNumLuces()));
+        numTemperaturas.setText(String.valueOf(user.getNumTemperatura()));
+        numPersianas.setText(String.valueOf(user.getNumPersianas()));
+        if(user.isCalefaccion()){ calefaccion.setText("Si");}else{calefaccion.setText("No");}
+        if(user.isAireAcondicionado()){aireAcondicionado.setText("Si");}else{aireAcondicionado.setText("No");}
+
     }
 
 }

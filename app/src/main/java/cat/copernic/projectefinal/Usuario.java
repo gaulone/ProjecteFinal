@@ -14,14 +14,34 @@ public class Usuario implements Serializable{
     int numLuces;
     int numTemperatura;
     int numPersianas;
+    boolean calefaccion;
+    boolean aireAcondicionado;
 
+    public boolean isCalefaccion() {
+        return calefaccion;
+    }
 
-    public Usuario(String nombre, String contraseña, int numLuces, int numTemperatura, int numPersianas) {
+    public void setCalefaccion(boolean calefaccion) {
+        this.calefaccion = calefaccion;
+    }
+
+    public boolean isAireAcondicionado() {
+        return aireAcondicionado;
+    }
+
+    public void setAireAcondicionado(boolean aireAcondicionado) {
+        this.aireAcondicionado = aireAcondicionado;
+    }
+
+    public Usuario(String nombre, String contraseña, int numLuces, int numTemperatura, int numPersianas, boolean calefaccion, boolean aireAcondicionado) {
+
         this.nombre = nombre;
         this.contraseña = contraseña;
         this.numLuces = numLuces;
         this.numTemperatura = numTemperatura;
         this.numPersianas = numPersianas;
+        this.calefaccion = calefaccion;
+        this.aireAcondicionado = aireAcondicionado;
     }
 
     public String getNombre() {
@@ -72,6 +92,8 @@ public class Usuario implements Serializable{
                 ", numLuces=" + numLuces +
                 ", numTemperatura=" + numTemperatura +
                 ", numPersianas=" + numPersianas +
+                ", calefaccion=" + calefaccion +
+                ", aireAcondicionado=" + aireAcondicionado +
                 '}';
     }
 }

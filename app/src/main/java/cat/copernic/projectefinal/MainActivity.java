@@ -86,7 +86,7 @@ public class MainActivity extends ActionBarActivity {
     public void OnClickAcceder (View view) {
 
 
-         user=new Usuario(usuario.getText().toString(),contraseña.getText().toString(),10,2,5);
+         user=new Usuario(usuario.getText().toString(),contraseña.getText().toString(),10,2,5,true,true);
 
         errores.setText("ok: "+user);
 

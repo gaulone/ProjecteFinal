@@ -16,11 +16,11 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.TextView;
 
-import cat.copernic.projectefinal.FragmentUsuario.OnFragmentInteractionListener;
+//import cat.copernic.projectefinal.FragmentUsuario.OnFragmentInteractionListener;
 
 
 public class MainActivityDrawer extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, OnFragmentInteractionListener {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, FragmentUsuario.OnFragmentInteractionListener {
 
     public static Usuario getUser() {
         return user;
@@ -52,6 +52,7 @@ public class MainActivityDrawer extends ActionBarActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
+
         user = (Usuario)getIntent().getSerializableExtra("usuario");
 
     }
@@ -79,7 +80,7 @@ public class MainActivityDrawer extends ActionBarActivity
                 break;
             case 3: FragmentManager fragmentManager3 = getSupportFragmentManager();
                 fragmentManager3.beginTransaction()
-                        .replace(R.id.container, FragmentUsuario.newInstance(null,null))
+                        .replace(R.id.container, FragmentUsuario.newInstance(position + 1))
                         .commit();
                 break;
         }
@@ -110,6 +111,8 @@ public class MainActivityDrawer extends ActionBarActivity
             case 4:
                 mTitle = getString(R.string.title_section4);
                 break;
+
+
         }
     }
 

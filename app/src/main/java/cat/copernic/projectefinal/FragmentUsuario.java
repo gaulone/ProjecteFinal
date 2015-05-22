@@ -139,9 +139,7 @@ public class FragmentUsuario extends Fragment {
 
         user=MainActivityDrawer.getUser();
         nombre.setText(user.getNombre());
-        numLuces.setText(String.valueOf(user.getNumLuces()));
-        numTemperaturas.setText(String.valueOf(user.getNumTemperatura()));
-        numPersianas.setText(String.valueOf(user.getNumPersianas()));
+
         if(user.isCalefaccion()){ calefaccion.setText("Si");}else{calefaccion.setText("No");}
         if(user.isAireAcondicionado()){aireAcondicionado.setText("Si");}else{aireAcondicionado.setText("No");}
 

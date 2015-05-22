@@ -7,6 +7,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -18,6 +23,10 @@ import android.view.ViewGroup;
  * create an instance of this fragment.
  */
 public class FragmentTemperatura extends Fragment {
+
+    Switch calefaccion,aireAcondicionado;
+    TextView TextCalefaccion, TextAire;
+    Button BTMenosCalefaccion, BTMasCalefaccion, BTMenosAire, BTMasAire;
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
@@ -36,8 +45,7 @@ public class FragmentTemperatura extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     *
      * @return A new instance of fragment FragmentTemperatura.
      */
     // TODO: Rename and change types and number of parameters
@@ -66,7 +74,105 @@ public class FragmentTemperatura extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_temperatura, container, false);
+
+        View v = inflater.inflate(R.layout.fragment_temperatura, container, false);
+
+        //Enlazamos variables con layout
+        calefaccion = (Switch) v.findViewById(R.id.switchCalefaccion);
+        aireAcondicionado = (Switch) v.findViewById(R.id.switchAireAcondicionado);
+        TextCalefaccion = (TextView) v.findViewById(R.id.textViewCalefaccion);
+        TextAire = (TextView) v.findViewById(R.id.textViewAire);
+        BTMenosCalefaccion = (Button) v.findViewById(R.id.BtMenosCalefaccion);
+        BTMasCalefaccion = (Button) v.findViewById(R.id.BtMasCalefaccion);
+        BTMenosAire = (Button) v.findViewById(R.id.BtMenosAire);
+        BTMasAire = (Button) v.findViewById(R.id.BtMasAire);
+
+        //desactivamos botones + y -
+        BTMenosCalefaccion.setEnabled(false);
+        BTMasCalefaccion.setEnabled(false);
+        BTMenosAire.setEnabled(false);
+        BTMasAire.setEnabled(false);
+
+        //Switchs
+        calefaccion.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if (isChecked) {
+                    BTMenosCalefaccion.setEnabled(true);
+                    BTMasCalefaccion.setEnabled(true);
+                    aireAcondicionado.setEnabled(false);
+
+
+
+                } else {
+
+                    BTMenosCalefaccion.setEnabled(false);
+                    BTMasCalefaccion.setEnabled(false);
+                    aireAcondicionado.setEnabled(true);
+
+
+                }
+            }
+        });
+
+        aireAcondicionado.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if (isChecked) {
+                    BTMenosAire.setEnabled(true);
+                    BTMasAire.setEnabled(true);
+                    calefaccion.setEnabled(false);
+
+
+
+                } else {
+
+                    BTMenosAire.setEnabled(false);
+                    BTMasAire.setEnabled(false);
+                    calefaccion.setEnabled(true);
+
+
+                }
+            }
+        });
+
+        //Botones + y -
+        BTMenosCalefaccion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity().getApplicationContext(),"Menos calefaccion",Toast.LENGTH_LONG).show();
+            }
+        });
+        BTMasCalefaccion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity().getApplicationContext(),"Mas calefaccion",Toast.LENGTH_LONG).show();
+            }
+        });
+        BTMenosAire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity().getApplicationContext(),"Menos Aire",Toast.LENGTH_LONG).show();
+            }
+        });
+        BTMasAire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity().getApplicationContext(),"Mas Aire",Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+
+
+
+
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -109,5 +215,39 @@ public class FragmentTemperatura extends Fragment {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
+
+
+
+
+/*
+    //OnClick para todos los botones + y - , luego miramos cual es en un switch
+    void OnClickBotonesTemperatura(View v){
+        Button b = (Button)v;
+        Toast.makeText(getActivity().getApplicationContext(),String.valueOf(v.getId()),Toast.LENGTH_LONG).show();
+
+        switch(b.getId()){
+            case R.id.BtMenosCalefaccion:
+
+                   // Toast.makeText(getActivity().getApplicationContext(),"menos calefaccion",Toast.LENGTH_LONG).show();
+
+                break;
+            case R.id.BtMasCalefaccion:
+               // Toast.makeText(getActivity().getApplicationContext(),"mas calefaccion",Toast.LENGTH_LONG).show();
+
+
+                break;
+            case R.id.BtMenosAire:
+               // Toast.makeText(getActivity().getApplicationContext(),"menos aire",Toast.LENGTH_LONG).show();
+
+                break;
+            case R.id.BtMasAire:
+              //  Toast.makeText(getActivity().getApplicationContext(),"mas aire",Toast.LENGTH_LONG).show();
+
+                break;
+
+
+        }
+
+    } */
 
 }

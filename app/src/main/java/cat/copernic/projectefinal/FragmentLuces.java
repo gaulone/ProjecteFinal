@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+import android.widget.Toast;
 
 
 /**
@@ -20,6 +23,8 @@ import android.view.ViewGroup;
 public class FragmentLuces extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
+
+    private Switch entrada,cocina,comedor,salita,habMatr,habD,habM,wc,garaje,patio,escalera,trastero;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,8 +41,6 @@ public class FragmentLuces extends Fragment {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment FragmentLuces.
      */
     // TODO: Rename and change types and number of parameters
@@ -64,9 +67,178 @@ public class FragmentLuces extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_luces, container, false);
+                             Bundle savedInstanceState) {View v = inflater.inflate(R.layout.fragment_luces, container, false);
+
+        entrada = (Switch) v.findViewById(R.id.switchEntrada);
+        cocina= (Switch) v.findViewById(R.id.switchCocina);
+        comedor= (Switch) v.findViewById(R.id.switchComedor);
+        salita= (Switch) v.findViewById(R.id.switchSalita);
+        habMatr= (Switch) v.findViewById(R.id.switchHabitacionMatr);
+        habD= (Switch) v.findViewById(R.id.switchHabitacionD);
+        habM= (Switch) v.findViewById(R.id.switchHabitacionM);
+        wc= (Switch) v.findViewById(R.id.switchWC);
+        garaje= (Switch) v.findViewById(R.id.switchGaraje);
+        patio= (Switch) v.findViewById(R.id.switchPatio);
+        escalera= (Switch) v.findViewById(R.id.switchEscalera);
+        trastero= (Switch) v.findViewById(R.id.switchTrastero);
+
+
+        entrada.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if (isChecked) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz entrada ON", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz entrada OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        cocina.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if(isChecked){
+                    Toast.makeText(getActivity().getApplicationContext(),"Luz cocina ON",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz cocina OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        comedor.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if(isChecked){
+                    Toast.makeText(getActivity().getApplicationContext(),"Luz comedor ON",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz comedor OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        salita.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if(isChecked){
+                    Toast.makeText(getActivity().getApplicationContext(),"Luz salita ON",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz salita OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        habMatr.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if(isChecked){
+                    Toast.makeText(getActivity().getApplicationContext(),"Luz habitación ON",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitación OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        habD.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if (isChecked) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitación ON", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitación OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+        habM.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if (isChecked) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitación ON", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitación OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        wc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if(isChecked){
+                    Toast.makeText(getActivity().getApplicationContext(),"Luz WC ON",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz WC OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        garaje.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if(isChecked){
+                    Toast.makeText(getActivity().getApplicationContext(),"Luz garaje ON",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz garaje OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        patio.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if (isChecked) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz patio ON", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz patio OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        escalera.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if (isChecked) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz escalera ON", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz escalera OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        trastero.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView,
+                                         boolean isChecked) {
+                if (isChecked) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz trastero ON", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz trastero OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

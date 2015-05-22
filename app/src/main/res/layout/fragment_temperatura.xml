@@ -58,7 +58,8 @@
                 android:id="@+id/textView21"
                 android:textSize="24dp"
                 android:paddingLeft="35dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:paddingBottom="80dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -67,6 +68,96 @@
                 android:id="@+id/textView20"
                 android:paddingLeft="20dp"
                 android:textSize="20dp" />
+        </LinearLayout>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calefacción     "
+            android:id="@+id/switchCalefaccion"
+            android:checked="false"
+            android:textSize="30dp"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="10dp"
+            android:textStyle="bold"
+            android:textColor="#751616" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="35dp">
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" - "
+                android:id="@+id/BtMenosCalefaccion" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="00ºC"
+                android:id="@+id/textViewCalefaccion"
+                android:textSize="25dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_gravity="center_vertical" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:id="@+id/BtMasCalefaccion" />
+        </LinearLayout>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aire acondicionado   "
+            android:id="@+id/switchAireAcondicionado"
+            android:checked="false"
+            android:textSize="30dp"
+            android:paddingBottom="10dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#184581" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="35dp"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" - "
+                android:id="@+id/BtMenosAire" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="00ºC"
+                android:id="@+id/textViewAire"
+                android:textSize="25dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:layout_gravity="center_vertical" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+"
+                android:id="@+id/BtMasAire" />
         </LinearLayout>
 
     </LinearLayout>

@@ -238,6 +238,7 @@ public class FragmentLuces extends Fragment {
             }
         });
 
+        
         return v;
     }
 

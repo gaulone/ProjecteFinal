@@ -20,7 +20,8 @@ import android.widget.TextView;
 
 
 public class MainActivityDrawer extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks, FragmentUsuario.OnFragmentInteractionListener {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks, FragmentUsuario.OnFragmentInteractionListener, FragmentTemperatura.OnFragmentInteractionListener,
+FragmentPersianas.OnFragmentInteractionListener, FragmentLuces.OnFragmentInteractionListener{
 
     public static Usuario getUser() {
         return user;
@@ -65,17 +66,17 @@ public class MainActivityDrawer extends ActionBarActivity
         switch (position){
             case 0:FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .replace(R.id.container, FragmentLuces.newInstance(position + 1))
                         .commit();
                 break;
             case 1:FragmentManager fragmentManager1 = getSupportFragmentManager();
                 fragmentManager1.beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .replace(R.id.container, FragmentTemperatura.newInstance(position + 1))
                         .commit();
                 break;
             case 2:FragmentManager fragmentManager2 = getSupportFragmentManager();
                 fragmentManager2.beginTransaction()
-                        .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+                        .replace(R.id.container, FragmentPersianas.newInstance(position + 1))
                         .commit();
                 break;
             case 3: FragmentManager fragmentManager3 = getSupportFragmentManager();

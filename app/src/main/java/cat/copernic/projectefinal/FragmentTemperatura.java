@@ -27,6 +27,7 @@ public class FragmentTemperatura extends Fragment {
     Switch calefaccion,aireAcondicionado;
     TextView TextCalefaccion, TextAire;
     Button BTMenosCalefaccion, BTMasCalefaccion, BTMenosAire, BTMasAire;
+    int numCalefaccion=20, numAire = 20;
 
     private static final String ARG_SECTION_NUMBER = "section_number";
 
@@ -144,25 +145,33 @@ public class FragmentTemperatura extends Fragment {
         BTMenosCalefaccion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"Menos calefaccion",Toast.LENGTH_LONG).show();
+                numCalefaccion--;
+                TextCalefaccion.setText(numCalefaccion + "\u00BAC");
+               // Toast.makeText(getActivity().getApplicationContext(),"Menos calefaccion",Toast.LENGTH_LONG).show();
             }
         });
         BTMasCalefaccion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"Mas calefaccion",Toast.LENGTH_LONG).show();
+                numCalefaccion++;
+                TextCalefaccion.setText(numCalefaccion + "\u00BAC");
+                //Toast.makeText(getActivity().getApplicationContext(),"Mas calefaccion",Toast.LENGTH_LONG).show();
             }
         });
         BTMenosAire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"Menos Aire",Toast.LENGTH_LONG).show();
+                numAire--;
+                TextAire.setText(numAire + "\u00BAC");
+                //Toast.makeText(getActivity().getApplicationContext(),"Menos Aire",Toast.LENGTH_LONG).show();
             }
         });
         BTMasAire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(),"Mas Aire",Toast.LENGTH_LONG).show();
+                numAire++;
+                TextAire.setText(numAire + "\u00BAC");
+               // Toast.makeText(getActivity().getApplicationContext(),"Mas Aire",Toast.LENGTH_LONG).show();
             }
         });
 

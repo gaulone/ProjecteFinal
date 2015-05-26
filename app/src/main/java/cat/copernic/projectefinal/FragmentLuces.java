@@ -141,9 +141,9 @@ public class FragmentLuces extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
                 if(isChecked){
-                    Toast.makeText(getActivity().getApplicationContext(),"Luz habitación ON",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(),"Luz habitacion ON",Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitación OFF", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitacion OFF", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -154,9 +154,9 @@ public class FragmentLuces extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
                 if (isChecked) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitación ON", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitacion ON", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitación OFF", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitacion OFF", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -168,9 +168,9 @@ public class FragmentLuces extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView,
                                          boolean isChecked) {
                 if (isChecked) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitación ON", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitacion ON", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitación OFF", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "Luz habitacion OFF", Toast.LENGTH_SHORT).show();
                 }
             }
         });

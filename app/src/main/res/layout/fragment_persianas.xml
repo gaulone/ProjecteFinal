@@ -1,10 +1,226 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="cat.copernic.projectefinal.FragmentPersianas">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Persianas"
+            android:id="@+id/textView22"
+            android:layout_gravity="center_horizontal"
+            android:textSize="35dp"
+            android:enabled="false"
+            android:textColor="#000000" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subir ------->"
+            android:id="@+id/textView23"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="30dp"
+            android:textColor="#6C0073" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Garaje        [5]"
+                android:id="@+id/textViewGaraje"
+                android:textSize="20dp"
+                android:layout_gravity="center_vertical" />
+
+            <SeekBar
+                android:layout_width="181dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBarGaraje"
+                android:max="10"
+                android:indeterminate="false"
+                android:progress="5"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="sube/baja"
+                android:id="@+id/buttonSGaraje"
+                android:layout_gravity="center_vertical"
+                android:textSize="11dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:weightSum="1"
+            android:paddingTop="30dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cocina       [5]"
+                android:id="@+id/textViewCocina"
+                android:textSize="20dp"
+                android:layout_gravity="center_vertical" />
+
+            <SeekBar
+                android:layout_width="181dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBarCocina"
+                android:max="10"
+                android:indeterminate="false"
+                android:progress="5"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="sube/baja"
+                android:id="@+id/buttonSCocina"
+                android:layout_gravity="center_vertical"
+                android:textSize="11dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:weightSum="1"
+            android:paddingTop="30dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Salita         [5]"
+                android:id="@+id/textViewSalita"
+                android:textSize="20dp"
+                android:layout_gravity="center_vertical" />
+
+            <SeekBar
+                android:layout_width="181dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBarSalita"
+                android:max="10"
+                android:indeterminate="false"
+                android:progress="5"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="sube/baja"
+                android:id="@+id/buttonSSalita"
+                android:layout_gravity="center_vertical"
+                android:textSize="11dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:weightSum="1"
+            android:paddingTop="30dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comedor   [5]"
+                android:id="@+id/textViewComedor"
+                android:textSize="20dp"
+                android:layout_gravity="center_vertical" />
+
+            <SeekBar
+                android:layout_width="181dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBarComedor"
+                android:max="10"
+                android:indeterminate="false"
+                android:progress="5"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="sube/baja"
+                android:id="@+id/buttonSComedor"
+                android:layout_gravity="center_vertical"
+                android:textSize="11dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:weightSum="1"
+            android:paddingTop="30dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dormitorio [5]"
+                android:id="@+id/textViewDormitorio"
+                android:textSize="20dp"
+                android:layout_gravity="center_vertical" />
+
+            <SeekBar
+                android:layout_width="181dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/seekBarDormitorio"
+                android:max="10"
+                android:indeterminate="false"
+                android:progress="5"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="sube/baja"
+                android:id="@+id/buttonSDormitorio"
+                android:layout_gravity="center_vertical"
+                android:textSize="11dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="                 &lt;------- Bajar"
+            android:id="@+id/textView24"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#6C0073" />
+    </LinearLayout>
+
+</ScrollView>

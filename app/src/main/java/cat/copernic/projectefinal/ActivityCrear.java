@@ -33,7 +33,7 @@ public class ActivityCrear extends ActionBarActivity {
         calefaccion = (CheckBox)findViewById(R.id.checkBoxCalefaccion);
         aireAcondicionado = (CheckBox) findViewById(R.id.checkBoxAire);
 
-        buttonCrear=(Button) findViewById(R.id.buttonCrear);
+        buttonCrear= (Button) findViewById(R.id.buttonCrearUsuario);
 
         buttonCrear.setOnClickListener(new View.OnClickListener() {
             @Override

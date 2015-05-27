@@ -84,17 +84,19 @@ public class MainActivity extends ActionBarActivity {
 
 
     public void OnClickAcceder (View view) {
+        errores.setText("");
+            if(usuario.getText().equals("") && contraseña.getText().equals("")){
+                errores.setText("Usuario no valido");
+            }else {
+                user = new Usuario(usuario.getText().toString(), contraseña.getText().toString(), true, true, true, true, true);
+
+                errores.setText("ok: " + user);
 
 
-         user=new Usuario(usuario.getText().toString(),contraseña.getText().toString(),true,true,true,true,true);
-
-        errores.setText("ok: "+user);
-
-
-        Intent i = new Intent(this, MainActivityDrawer.class );
-        i.putExtra("usuario", user);
-        startActivity(i);
-
+                Intent i = new Intent(this, MainActivityDrawer.class);
+                i.putExtra("usuario", user);
+                startActivity(i);
+            }
     }
 
 }

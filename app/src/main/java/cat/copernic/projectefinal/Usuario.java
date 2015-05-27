@@ -11,9 +11,48 @@ public class Usuario implements Serializable{
 
     String nombre;
     String contraseña;
-
+    boolean modificar;
+    boolean crear;
+    boolean persianaGaraje;
     boolean calefaccion;
     boolean aireAcondicionado;
+
+
+    public Usuario(String nombre, String contraseña, boolean modificar, boolean crear, boolean persianaGaraje, boolean calefaccion, boolean aireAcondicionado) {
+        this.nombre = nombre;
+        this.contraseña = contraseña;
+        this.modificar = modificar;
+        this.crear = crear;
+        this.persianaGaraje = persianaGaraje;
+        this.calefaccion = calefaccion;
+        this.aireAcondicionado = aireAcondicionado;
+    }
+
+    public boolean isModificar() {
+        return modificar;
+    }
+
+    public void setModificar(boolean modificar) {
+        this.modificar = modificar;
+    }
+
+    public boolean isCrear() {
+        return crear;
+    }
+
+    public void setCrear(boolean crear) {
+        this.crear = crear;
+    }
+
+    public boolean isPersianaGaraje() {
+        return persianaGaraje;
+    }
+
+    public void setPersianaGaraje(boolean persianaGaraje) {
+        this.persianaGaraje = persianaGaraje;
+    }
+
+
 
     public boolean isCalefaccion() {
         return calefaccion;
@@ -31,13 +70,7 @@ public class Usuario implements Serializable{
         this.aireAcondicionado = aireAcondicionado;
     }
 
-    public Usuario(String nombre, String contraseña,  boolean calefaccion, boolean aireAcondicionado) {
 
-        this.nombre = nombre;
-        this.contraseña = contraseña;
-        this.calefaccion = calefaccion;
-        this.aireAcondicionado = aireAcondicionado;
-    }
 
     public String getNombre() {
         return nombre;
@@ -47,7 +80,7 @@ public class Usuario implements Serializable{
         this.nombre = nombre;
     }
 
-    public String getContraseña() {
+    public String getPassword() {
         return contraseña;
     }
 
@@ -56,12 +89,14 @@ public class Usuario implements Serializable{
     }
 
 
-
     @Override
     public String toString() {
         return "Usuario{" +
                 "nombre='" + nombre + '\'' +
                 ", contraseña='" + contraseña + '\'' +
+                ", modificar=" + modificar +
+                ", crear=" + crear +
+                ", persianaGaraje=" + persianaGaraje +
                 ", calefaccion=" + calefaccion +
                 ", aireAcondicionado=" + aireAcondicionado +
                 '}';

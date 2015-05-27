@@ -1,13 +1,16 @@
 package cat.copernic.projectefinal;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -23,12 +26,8 @@ public class FragmentUsuario extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     Usuario user;
-    TextView nombre;
-    TextView numLuces;
-    TextView numTemperaturas;
-    TextView numPersianas;
-    TextView calefaccion;
-    TextView aireAcondicionado;
+    TextView nombre,modificarCrear, persianaGaraje,calefaccion,aireAcondicionado;
+    Button modificar,crear;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -81,11 +80,41 @@ public class FragmentUsuario extends Fragment {
 
         //asignamos variables con layout
         nombre = (TextView) l.findViewById(R.id.nombreUsuario);
-        numLuces = (TextView) l.findViewById(R.id.numLuces);
-        numTemperaturas  =(TextView) l.findViewById(R.id.numTemperaturas);
-        numPersianas = (TextView) l.findViewById(R.id.numPersianas);
+        modificarCrear = (TextView) l.findViewById(R.id.modificar_crear);
+        persianaGaraje  =(TextView) l.findViewById(R.id.persianaGaraje);
         calefaccion = (TextView) l.findViewById(R.id.calefaccion);
         aireAcondicionado = (TextView) l.findViewById(R.id.aireAcondicionado);
+
+        modificar = (Button) l.findViewById(R.id.buttonModificar);
+        crear = (Button) l.findViewById(R.id.buttonCrear);
+
+
+        modificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(user.isModificar()) {
+                    Intent i = new Intent(getActivity(),ActivityModificar.class);
+                    i.putExtra("usuario", user);
+                    startActivity(i);
+
+
+                }else{
+                    Toast.makeText(getActivity(),"No tienes acceso",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+        crear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(user.isCrear()){
+                    Intent i = new Intent(getActivity(),ActivityCrear.class);
+                    startActivity(i);
+
+                }else{
+                    Toast.makeText(getActivity(),"No tienes acceso",Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
         //cargamos información
         cargarUsuario();
@@ -119,6 +148,8 @@ public class FragmentUsuario extends Fragment {
         mListener = null;
     }
 
+
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -140,7 +171,29 @@ public class FragmentUsuario extends Fragment {
         user=MainActivityDrawer.getUser();
         nombre.setText(user.getNombre());
 
-        if(user.isCalefaccion()){ calefaccion.setText("Si");}else{calefaccion.setText("No");}
+
+        if (user.isModificar()) {
+            if(user.isCrear()){
+            modificarCrear.setText("Si"+" / "+"Si");}else{
+                modificarCrear.setText("Si"+" / "+"No");
+            }
+        }else{
+            if(user.isCrear()){
+                modificarCrear.setText("No"+" / "+"Si");
+            }else{
+                modificarCrear.setText("No"+" / "+"No");
+            }
+        }
+
+
+        if(user.isPersianaGaraje()){
+            persianaGaraje.setText("Si");
+        }else{
+            persianaGaraje.setText("No");
+        }
+
+        if(user.isCalefaccion()){ calefaccion.setText("Si");}else{calefaccion.setText("No");
+        }
         if(user.isAireAcondicionado()){aireAcondicionado.setText("Si");}else{aireAcondicionado.setText("No");}
 
     }

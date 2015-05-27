@@ -7,13 +7,20 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="match_parent"
+        android:weightSum="1">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="497dp"
+            android:layout_weight="1.09">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
+
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -38,19 +45,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView17"
-                android:layout_gravity="center_horizontal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/textView14" />
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal">
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="20dp">
 
                 <TextView
                     android:layout_weight="1"
@@ -62,15 +64,6 @@
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Num. Luces"
-                    android:id="@+id/textView36"
-                    android:gravity="center"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -84,15 +77,9 @@
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:id="@+id/nombreUsuario"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#34C7BD" />
 
-                <TextView
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="New Text"
-                    android:id="@+id/numLuces"
-                    android:gravity="center" />
             </LinearLayout>
 
             <TextView
@@ -101,11 +88,6 @@
                 android:id="@+id/text1"
                 android:gravity="center"
                 android:layout_gravity="center_vertical" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tex2" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -122,8 +104,8 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Num.  temperaturas"
-                    android:id="@+id/textView27"
+                    android:text="Modificar/Crear"
+                    android:id="@+id/textview"
                     android:gravity="center"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -132,7 +114,7 @@
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Num. Persianas"
+                    android:text="Persiana Garaje"
                     android:id="@+id/textView28"
                     android:gravity="center"
                     android:textSize="20dp"
@@ -149,16 +131,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New Text"
-                    android:id="@+id/numTemperaturas"
-                    android:gravity="center" />
+                    android:id="@+id/modificar_crear"
+                    android:gravity="center"
+                    android:textColor="#34C7BD" />
 
                 <TextView
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New Text"
-                    android:id="@+id/numPersianas"
-                    android:gravity="center" />
+                    android:id="@+id/persianaGaraje"
+                    android:gravity="center"
+                    android:textColor="#34C7BD" />
             </LinearLayout>
 
 
@@ -168,11 +152,6 @@
                 android:id="@+id/textView12"
                 android:gravity="center"
                 android:layout_gravity="center_vertical" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView15" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -217,7 +196,8 @@
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:id="@+id/calefaccion"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#34C7BD" />
 
                 <TextView
                     android:layout_weight="1"
@@ -225,10 +205,13 @@
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:id="@+id/aireAcondicionado"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:textColor="#34C7BD" />
             </LinearLayout>
 
+
         </LinearLayout>
+        </ScrollView>
 
         <LinearLayout
             android:orientation="vertical"
@@ -237,22 +220,39 @@
 
             <LinearLayout
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom">
 
-                <Button
+                <LinearLayout
+                    android:orientation="vertical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Modificar"
-                    android:id="@+id/button"
+                    android:gravity="bottom"
+                    android:layout_gravity="bottom">
 
-                    android:gravity="left" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Modificar"
+                        android:id="@+id/buttonModificar"
 
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Crear nuevo"
-                    android:id="@+id/button2"
-                    android:gravity="right" />
+                        android:layout_gravity="bottom" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="bottom"
+                    android:layout_gravity="bottom">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Crear nuevo"
+                        android:id="@+id/buttonCrear"
+                        android:layout_gravity="bottom|right" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

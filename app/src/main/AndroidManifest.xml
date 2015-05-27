@@ -20,6 +20,14 @@
             android:name=".MainActivityDrawer"
             android:label="@string/title_activity_main_activity2" >
         </activity>
+        <activity
+            android:name=".ActivityModificar"
+            android:label="@string/title_activity_activity_modificar" >
+        </activity>
+        <activity
+            android:name=".ActivityCrear"
+            android:label="@string/title_activity_activity_crear" >
+        </activity>
     </application>
 
 </manifest>

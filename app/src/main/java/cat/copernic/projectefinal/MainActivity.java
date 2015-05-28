@@ -1,6 +1,7 @@
 package cat.copernic.projectefinal;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,11 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -23,6 +27,18 @@ public class MainActivity extends ActionBarActivity {
     EditText contraseña;
     Button acceder;
     TextView errores;
+
+    String luces = null;
+    String temp = null;
+    String pers = null;
+    String cal = null;
+    String aire = null;
+    String confirm = "dddd";
+
+
+
+    final static String LOCALHOST_PC = "192.168.43.87";
+    final static int PORT = 39168;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,42 +77,109 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-    //Leer ficheros
-    public void leerFichero(String archivo) throws FileNotFoundException, IOException {
-        String cadena;
-/*
-         File dir = new File(getFilesDir() +"/app/src/main/java/cat/copernic");
-        dir.mkdirs(); //create folders where write files
-         File file = new File(dir, "Config.txt");*/
 
-        BufferedReader fin =
-                new BufferedReader(
-                        new InputStreamReader(
-                                openFileInput(archivo)));
 
-        String texto = fin.readLine();
-        while((cadena = fin.readLine())!=null) {
-           // System.out.println(cadena);
-          //  contraseña.setText(cadena);
-        }
-        fin.close();
-    }
+
 
 
     public void OnClickAcceder (View view) {
-        errores.setText("");
-            if(usuario.getText().equals("") && contraseña.getText().equals("")){
-                errores.setText("Usuario no valido");
-            }else {
-                user = new Usuario(usuario.getText().toString(), contraseña.getText().toString(), true, true, true, true, true);
 
-                errores.setText("ok: " + user);
+        confirm = "novalido";
+
+        new AsyncTask<Object, Void, String>() {
+            @Override
+            protected String doInBackground(Object... params) {
+                String s = "";
+
+                String host = (String) params[0];
+                Integer port = (Integer) params[1];
+
+                try {
+                    Socket client = new Socket(host, port);
+
+                    //ENVIAR
+                    try {
+                        PrintWriter writer = new PrintWriter(client.getOutputStream(), true);
+                        String s2 = "1";
+                        writer.println(s2);
+                        writer.flush();
+                        writer.println(usuario.getText().toString());
+                        writer.flush();
+                        writer.println(contraseña.getText().toString());
+                        writer.flush();
+                        //s = "okk";
+
+                    }catch(Exception e2){
+                        e2.printStackTrace();
+                    }
+                    //RECIBIR
+                    //s = "Conexion Completa";
 
 
-                Intent i = new Intent(this, MainActivityDrawer.class);
-                i.putExtra("usuario", user);
-                startActivity(i);
+                    //InputStream stream = null;
+                    try {
+                        BufferedReader reader = new BufferedReader((new InputStreamReader(client.getInputStream())));
+
+                        luces = reader.readLine();
+                        temp = reader.readLine();
+                        pers = reader.readLine();
+                        cal = reader.readLine();
+                        aire = reader.readLine();
+                        confirm = reader.readLine();
+                        s = confirm;
+                    }catch(Exception e3){
+                        e3.printStackTrace();
+                        s="sin readline";
+                    }
+                    client.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    s = "sin conexion";
+                }
+
+
+                return s;
             }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                //Toast.makeText(getBaseContext(), s, Toast.LENGTH_LONG).show();
+
+
+
+                boolean b = Boolean.parseBoolean(s);
+
+
+                if(b) {
+
+                    boolean luz = Boolean.parseBoolean(luces);
+                    boolean tem = Boolean.parseBoolean(temp);
+                    boolean per = Boolean.parseBoolean(pers);
+                    boolean cale = Boolean.parseBoolean(cal);
+                    boolean acon = Boolean.parseBoolean(aire);
+
+                    user=new Usuario(usuario.getText().toString(),contraseña.getText().toString(),luz,tem,per,cale,acon);
+
+                    //errores.setText(confirm + user);
+
+
+                    Intent i = new Intent(getBaseContext(), MainActivityDrawer.class);
+                    i.putExtra("usuario", user);
+                    startActivity(i);
+                }else{
+                    Toast.makeText(getBaseContext(),"Usuario no valido",Toast.LENGTH_LONG).show();
+                    //errores.setText(confirm + user);
+                }
+
+
+
+
+            }
+        }.execute(LOCALHOST_PC, PORT);
+
+
+
     }
 
 }
